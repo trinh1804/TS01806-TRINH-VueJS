@@ -6,23 +6,25 @@
                 <nav class="navbar navbar-expand-lg navbar-light py-3">
                     <div class="container-fluid">
                         <!-- Logo -->
-                        <a class="navbar-brand d-flex align-items-center" href="#">
+                        <a class="navbar-brand d-flex align-items-center" href="#" @click.prevent="goToHome">
                             <div class="bg-primary text-white rounded p-2 me-2">
                                 <i class="fas fa-book-open"></i>
                             </div>
                             <span class="fw-bold fs-5">BlogVue</span>
                         </a>
 
-                        <!-- Toggler -->
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
-                        <!-- Nav Items -->
+                        <!-- Menu -->
                         <div class="collapse navbar-collapse">
                             <ul class="navbar-nav ms-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link active text-primary fw-semibold" href="#">Trang chủ</a>
+                                    <a class="nav-link active text-primary fw-semibold" href="#"
+                                        @click.prevent="goToHome">Trang
+                                        chủ</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-secondary" href="#">Bài viết</a>
@@ -33,20 +35,28 @@
                             </ul>
 
                             <!-- Search Bar -->
-                            <form class="d-flex me-3 d-none d-lg-flex ms-auto">
+                            <form class="d-flex me-3 d-none d-lg-flex ms-auto" @submit.prevent="searchPosts">
                                 <div class="input-group">
                                     <span class="input-group-text bg-light border-0">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </span>
                                     <input class="form-control border-0 bg-light" type="search"
-                                        placeholder="Tìm kiếm bài viết...">
+                                        placeholder="Tìm kiếm bài viết..." v-model="searchKeyword">
                                 </div>
                             </form>
 
                             <!-- Auth Buttons -->
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-outline-dark">Đăng nhập</button>
-                                <button class="btn btn-primary text-white">Đăng ký</button>
+                            <div class="d-flex gap-2" v-if="!isLoggedIn">
+                                <button class="btn btn-outline-dark" @click="goToLogin">Đăng nhập</button>
+                                <button class="btn btn-primary text-white" @click="goToLogin">Đăng ký</button>
+                            </div>
+                            <div class="d-flex gap-2 align-items-center" v-else>
+                                <button class="btn btn-primary text-white" @click="goToCreatePost">
+                                    <i class="fa-solid fa-plus me-2"></i>Viết bài
+                                </button>
+                                <img :src="currentUser?.avatar || '/assets/images/avatar1.png'"
+                                    class="rounded-circle object-fit-cover" width="40" height="40" alt="User"
+                                    style="cursor: pointer;" @click="goToProfile">
                             </div>
                         </div>
                     </div>
@@ -57,40 +67,39 @@
         <!-- Main Content -->
         <main class="container my-5">
 
-            <!-- Hero Section -->
-            <section class="mb-5">
+            <!-- Hero Section - Bài viết nổi bật -->
+            <section class="mb-5" v-if="featuredPost">
                 <div class="card border-0 shadow-sm overflow-hidden">
                     <div class="row g-0">
                         <div class="col-sm-7">
-                            <img src="../assets/images/img1.webp" class="img-fluid w-100 h-100 object-fit-cover"
+                            <img :src="featuredPost.image" class="img-fluid w-100 h-100 object-fit-cover"
                                 alt="Bài viết nổi bật">
                         </div>
                         <div class="col-sm-5">
                             <div class="card-body p-4 d-flex flex-column justify-content-center">
                                 <div class="mb-3">
                                     <span class="badge bg-primary text-white me-2">BÀI VIẾT NỔI BẬT</span>
-                                    <span class="text-muted small">• 10/01/2026</span>
+                                    <span class="text-muted small">• {{ featuredPost.date }}</span>
                                 </div>
 
                                 <h2 class="card-title fw-bold mb-3">
-                                    Tương Lai Của Phong Cách Sống Tối Giản Trong Không Gian Đô Thị
+                                    {{ featuredPost.title }}
                                 </h2>
 
                                 <p class="card-text text-muted mb-4">
-                                    Khám phá cách thiết kế có chủ đích và thói quen sống lành mạnh có thể biến đổi môi trường
-                                    hàng ngày của bạn thành một một nơi yên bình và thư thái.
+                                    {{ featuredPost.content.substring(0, 150) }}...
                                 </p>
 
                                 <div class="d-flex align-items-center mb-4">
-                                    <img src="../assets/images/avatar1.png" class="rounded-circle me-3 object-fit-cover" width="48" height="48"
-                                        alt="Tác giả">
+                                    <img src="/assets/images/avatar1.png" class="rounded-circle me-3 object-fit-cover"
+                                        width="48" height="48" alt="Tác giả">
                                     <div>
-                                        <p class="mb-0 fw-bold">Elena Trần</p>
-                                        <p class="mb-0 small text-muted">Biên tập viên Phong cách sống</p>
+                                        <p class="mb-0 fw-bold">{{ featuredPost.author }}</p>
+                                        <p class="mb-0 small text-muted">{{ featuredPost.category }}</p>
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary text-white">
+                                <button class="btn btn-primary text-white" @click="viewPost(featuredPost.id)">
                                     Đọc bài viết <i class="bi bi-arrow-right ms-2"></i>
                                 </button>
                             </div>
@@ -104,80 +113,48 @@
                 <div class="col-lg-8">
                     <h2 class="fw-bold mb-4">Bài Viết Gần Đây</h2>
 
+                    <!-- Thông báo loading -->
+                    <div v-if="loading" class="text-center py-5">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Đang tải...</span>
+                        </div>
+                    </div>
+
+                    <!-- Thông báo lỗi -->
+                    <div v-if="error" class="alert alert-danger">
+                        {{ error }}
+                    </div>
+
                     <!-- Post Grid -->
-                    <div class="row row-cols-2 g-4 mb-4">
-                        <!-- Post Card 1 -->
-                        <div class="col">
-                            <div class="card border-0 shadow-sm h-100">
+                    <div class="row row-cols-1 row-cols-md-2 g-4 mb-4" v-if="!loading && posts.length > 0">
+                        <!-- Post Card -->
+                        <div class="col" v-for="post in posts" :key="post.id">
+                            <div class="card border-0 shadow-sm h-100" style="cursor: pointer;"
+                                @click="viewPost(post.id)">
                                 <div class="card-body">
-                                    <img src="../assets/images/post-card1.jpg" class="card-img-top rounded-2">
-                                    <h4 class="card-title h5 fw-bold mt-3 mb-2">10 Mẹo Cho Không Gian Làm Việc Hiện Đại</h4>
+                                    <img :src="post.image" class="card-img-top rounded-2" alt="Post image">
+                                    <h4 class="card-title h5 fw-bold mt-3 mb-2">{{ post.title }}</h4>
                                     <p class="card-text mb-3">
-                                        Tăng năng suất với những bí quyết tổ chức văn phòng dựa trên khoa học mà không tốn
-                                        kém.
+                                        {{ post.content.substring(0, 100) }}...
                                     </p>
-                                    <div class="text-muted text-end small">                                      
-                                        22/01/2026
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-light text-dark">{{ post.category }}</span>
+                                        <span class="text-muted small">
+                                            <i class="bi bi-eye me-1"></i>{{ post.views }}
+                                        </span>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Post Card 2 -->
-                        <div class="col">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body">
-                                    <img src="../assets/images/post-card1.jpg" class="card-img-top rounded-2">
-                                    <h4 class="card-title h5 fw-bold mt-3 mb-2">Xu Hướng Thiết Kế 2026</h4>
-                                    <p class="card-text">
-                                        Từ da đến nội thất nhựa tái chế, khám phá vật liệu của tương lai.
-                                    </p>
-                                    <div class="text-muted text-end small">                                      
-                                        22/01/2026
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Post Card 3 -->
-                        <div class="col">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body">
-                                    <img src="../assets/images/post-card1.jpg" class="card-img-top rounded-2">
-                                    <h4 class="card-title h5 fw-bold mt-3 mb-2">Nghệ Thuật Sống Chậm Trong Thế Giới Nhanh</h4>
-                                    <p class="card-text">
-                                        Tại sao chậm lại là cuộc nổi loạn tối thượng và nó có thể cứu sức khỏe tinh thần của
-                                        bạn như thế nào.
-                                    </p>
-                                    <div class="text-muted text-end small">                                      
-                                        22/01/2026
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Post Card 4 -->
-                        <div class="col">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body">
-                                    <img src="../assets/images/post-card1.jpg" class="card-img-top rounded-2">
-                                    <h4 class="card-title h5 fw-bold mt-3 mb-2">Làm Chủ Công Nghệ Thay Vì Bị Chi Phối</h4>
-                                    <p class="card-text">
-                                        Những nguyên tắc tối giản kỹ thuật số giúp bạn kiểm soát thời gian và sự chú ý mỗi ngày.
-                                    </p>
-                                    <div class="text-muted text-end small">                                      
-                                        22/01/2026
+                                    <div class="text-muted text-end small mt-2">
+                                        {{ post.date }}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Load More Button -->
-                    <div class="text-center">
-                        <button class="btn btn-outline-dark btn-lg mt-3">
-                            Xem thêm bài viết 
-                        </button>
+                    <!-- Thông báo không có bài viết -->
+                    <div v-if="!loading && posts.length === 0" class="text-center py-5">
+                        <i class="bi bi-inbox fs-1 text-muted"></i>
+                        <p class="text-muted mt-3">Chưa có bài viết nào</p>
                     </div>
                 </div>
 
@@ -196,7 +173,7 @@
                             <div class="mb-3">
                                 <input type="email" class="form-control" placeholder="email@example.com">
                             </div>
-                            <button class="btn btn-primary text-white w-100">Đăng ký</button>                          
+                            <button class="btn btn-primary text-white w-100">Đăng ký</button>
                         </div>
                     </div>
 
@@ -207,11 +184,17 @@
                             Khám Phá Danh Mục
                         </h3>
                         <div class="d-flex flex-wrap gap-2">
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Thiết kế</a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Phong cách sống</a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Sức khỏe</a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Kiến trúc</a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Công nghệ</a>
+                            <button class="btn btn-sm btn-outline-secondary" @click="filterByCategory('Thiết kế')">Thiết
+                                kế</button>
+                            <button class="btn btn-sm btn-outline-secondary"
+                                @click="filterByCategory('Phong cách sống')">Phong cách sống</button>
+                            <button class="btn btn-sm btn-outline-secondary" @click="filterByCategory('Sức khỏe')">Sức
+                                khỏe</button>
+                            <button class="btn btn-sm btn-outline-secondary" @click="filterByCategory('Kiến trúc')">Kiến
+                                trúc</button>
+                            <button class="btn btn-sm btn-outline-secondary" @click="filterByCategory('Công nghệ')">Công
+                                nghệ</button>
+                            <button class="btn btn-sm btn-outline-secondary" @click="clearFilter">Tất cả</button>
                         </div>
                     </div>
 
@@ -221,8 +204,8 @@
                             <h3 class="h5 fw-bold mb-4">Tác Giả Nổi Bật</h3>
 
                             <div class="d-flex align-items-center mb-4">
-                                <img src="../assets/images/avatar1.png" class="rounded-circle me-3 object-fit-cover" width="48" height="48"
-                                        alt="Tác giả">                              
+                                <img src="/assets/images/avatar4.jpg" class="rounded-circle me-3 object-fit-cover"
+                                    width="48" height="48" alt="Tác giả">
                                 <div>
                                     <p class="mb-0 fw-bold">Marcus Vũ</p>
                                     <p class="mb-0 text-muted small">Nhà Phê Bình Kiến Trúc</p>
@@ -230,8 +213,8 @@
                             </div>
 
                             <div class="d-flex align-items-center">
-                                <img src="../assets/images/avatar1.png" class="rounded-circle me-3 object-fit-cover" width="48" height="48"
-                                    alt="Tác giả">
+                                <img src="/assets/images/avatar6.jpg" class="rounded-circle me-3 object-fit-cover"
+                                    width="48" height="48" alt="Tác giả">
                                 <div>
                                     <p class="mb-0 fw-bold">Sana Miyazaki</p>
                                     <p class="mb-0 text-muted small">Nhà Thiết Kế</p>
@@ -245,26 +228,174 @@
 
         <!-- Footer -->
         <footer class="bg-white text-white text-muted text-center p-3">
-            © 2026 BlogViet. All rights reserved. <br/> 
+            © 2026 BlogVue. All rights reserved. <br />
             PHAM THUY TRINH
         </footer>
 
     </div>
 </template>
 
+<script setup>
+import axios from 'axios'
+import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+// Data
+const posts = ref([])
+const featuredPost = ref(null)
+const loading = ref(false)
+const error = ref('')
+const searchKeyword = ref('')
+const newsletterEmail = ref('')
+const selectedCategory = ref('')
+
+// User data - lấy từ session
+const isLoggedIn = ref(false)
+const currentUser = ref(null)
+
+// Methods
+const fetchPosts = async () => {
+    loading.value = true
+    error.value = ''
+    try {
+        let url = 'http://localhost:3000/posts'
+
+        // Thêm filter theo category nếu có
+        if (selectedCategory.value) {
+            url += `?category=${selectedCategory.value}`
+        }
+
+        const response = await axios.get(url)
+        posts.value = response.data
+
+        // Lấy bài viết nổi bật (bài có lượt xem cao nhất)
+        if (posts.value.length > 0) {
+            featuredPost.value = [...posts.value].sort((a, b) => b.views - a.views)[0]
+        }
+    } catch (err) {
+        error.value = 'Không thể tải bài viết. Vui lòng kiểm tra JSON Server đã chạy chưa.'
+        console.error('Lỗi khi lấy dữ liệu:', err)
+    } finally {
+        loading.value = false
+    }
+}
+
+const searchPosts = () => {
+    if (!searchKeyword.value.trim()) {
+        fetchPosts()
+        return
+    }
+
+    const keyword = searchKeyword.value.toLowerCase()
+
+    // Lọc từ tất cả bài viết
+    axios.get('http://localhost:3000/posts')
+        .then(response => {
+            posts.value = response.data.filter(post =>
+                post.title.toLowerCase().includes(keyword) ||
+                post.content.toLowerCase().includes(keyword) ||
+                post.category.toLowerCase().includes(keyword)
+            )
+        })
+        .catch(err => {
+            error.value = 'Lỗi khi tìm kiếm'
+            console.error(err)
+        })
+}
+
+const filterByCategory = (category) => {
+    selectedCategory.value = category
+    fetchPosts()
+}
+
+const clearFilter = () => {
+    selectedCategory.value = ''
+    searchKeyword.value = ''
+    fetchPosts()
+}
+
+const viewPost = (postId) => {
+    router.push({ name: 'BaiVietChiTiet', params: { id: postId } })
+}
+
+const goToHome = () => {
+    router.push({ name: 'TrangChu' })
+}
+
+const goToLogin = () => {
+    router.push({ name: 'DangNhap' })
+}
+
+const goToCreatePost = () => {
+    router.push({ name: 'TaoBaiViet' })
+}
+
+const goToProfile = () => {
+    router.push({ name: 'HoSoCaNhan' })
+}
+
+const subscribeNewsletter = () => {
+    if (!newsletterEmail.value) {
+        alert('Vui lòng nhập email')
+        return
+    }
+    alert('Đăng ký thành công!')
+    newsletterEmail.value = ''
+}
+
+const checkLoginStatus = () => {
+    // Kiểm tra session từ router state hoặc query
+    const userId = sessionStorage.getItem('currentUserId')
+    if (userId) {
+        isLoggedIn.value = true
+        fetchCurrentUser(userId)
+    }
+}
+
+const fetchCurrentUser = async (userId) => {
+    try {
+        const response = await axios.get(`http://localhost:3000/users/${userId}`)
+        currentUser.value = response.data
+    } catch (error) {
+        console.error('Lỗi khi lấy thông tin user:', error)
+    }
+}
+
+// Lifecycle
+onMounted(() => {
+    checkLoginStatus()
+    fetchPosts()
+})
+
+</script>
+
 <style scoped>
-    :root {
-        --bs-primary: #389485;
-        --bs-primary-rgb: 56, 148, 133;
-    }
-    .btn-primary, .bg-primary {
-        background-color: #389485 !important;
-        border-color: #389485 !important;
-    }
-    .text-primary {
-        color: #389485 !important;
-    }
-    .border-primary {
-        border-color: #389485 !important;
-    }
+:root {
+    --bs-primary: #389485;
+    --bs-primary-rgb: 56, 148, 133;
+}
+
+.btn-primary,
+.bg-primary {
+    background-color: #389485 !important;
+    border-color: #389485 !important;
+}
+
+.text-primary {
+    color: #389485 !important;
+}
+
+.border-primary {
+    border-color: #389485 !important;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
 </style>

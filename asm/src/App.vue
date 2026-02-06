@@ -1,19 +1,19 @@
 <script setup>
-//import trangchu from './components/TrangChu.vue'
-//import dangnhapdangky from './components/DangNhap-DangKy.vue'
-//import taobaiviet from './components/TaoBaiViet.vue'
-//import baivietchitiet from './components/BaiVietChiTiet.vue'
-import hosocanhan from './components/HoSoCaNhan.vue'
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-<!-- <trangchu /> -->
-<!-- <dangnhapdangky/> -->
-<!-- <taobaiviet/> -->
-<!-- <baivietchitiet/> -->
-<hosocanhan/>
+    <RouterView />
 </template>
 
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 </style>

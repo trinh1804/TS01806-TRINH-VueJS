@@ -1,0 +1,184 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Nguyễn Mạnh Hùng",
+            "email": "vanan@blog.com",
+            "password": "123456",
+            "avatar": "/assets/images/avatar2.jpg",
+            "bio": "Kiến trúc sư chuyên về thiết kế tối giản"
+        },
+        {
+            "id": "2",
+            "name": "Trần Thị Bình",
+            "email": "binh@blog.com",
+            "password": "123456",
+            "avatar": "/assets/images/avatar5.webp",
+            "bio": "Chuyên gia về phong cách sống tối giản"
+        },
+        {
+            "id": "3",
+            "name": "Lê Hoàng Minh",
+            "email": "minh@blog.com",
+            "password": "123456",
+            "avatar": "/assets/images/avatar7.webp",
+            "bio": "Nhà thiết kế nội thất với 10 năm kinh nghiệm"
+        },
+        {
+            "id": "4",
+            "name": "Elena Trần",
+            "email": "ha@blog.com",
+            "password": "123456",
+            "avatar": "/assets/images/avatar1.png",
+            "bio": "Blogger chuyên về sức khỏe và lối sống"
+        },
+        {
+            "id": "5",
+            "name": "Phạm Thuỳ Trinh",
+            "email": "trinh@blog.com",
+            "password": "123456",
+            "avatar": "/assets/images/avatar3.jpeg",
+            "bio": "Hello"
+        }
+    ],
+    "posts": [
+        {
+            "id": "1",
+            "title": "Nghệ Thuật Sống Tối Giản: Hành Trình Tìm Về Chính Mình",
+            "content": "Trong xã hội hiện đại đầy rẫy những tiếng ồn và sự hối hả, việc sống tối giản không chỉ là một xu hướng mà còn là một triết lý sống giúp chúng ta tìm lại sự cân bằng và ý nghĩa thực sự của cuộc sống.\n\nSống tối giản không có nghĩa là từ bỏ mọi thứ hay sống nghèo khổ. Đó là về việc loại bỏ những thứ không cần thiết để tập trung vào những gì thực sự quan trọng. Khi chúng ta giảm bớt số lượng đồ vật xung quanh, chúng ta tạo ra không gian cho sự sáng tạo, bình yên và hạnh phúc.\n\nBắt đầu hành trình tối giản có thể khó khăn. Nhiều người cảm thấy áp lực khi phải quyết định giữ lại hay từ bỏ những món đồ mà họ đã sở hữu trong nhiều năm. Tuy nhiên, bí quyết là bắt đầu từ những điều nhỏ nhất. Hãy dọn dẹp một ngăn kéo, một góc phòng, rồi dần dần mở rộng.\n\nLợi ích của lối sống tối giản rất rõ ràng: ít stress hơn, nhiều thời gian hơn cho những điều quan trọng, tiết kiệm tiền bạc, và quan trọng nhất là có được sự thanh thản trong tâm hồn. Khi không gian sống của chúng ta gọn gàng, tâm trí cũng trở nên trong trẻo hơn.\n\nHãy nhớ rằng, sống tối giản là một hành trình cá nhân. Mỗi người có định nghĩa riêng về 'đủ'. Điều quan trọng là tìm ra con số 'đủ' của chính bạn và sống hài lòng với nó. Đó mới là nghệ thuật thực sự của cuộc sống.",
+            "image": "/assets/images/nghe-thuat-song-toi-gian.jpg",
+            "category": "Phong cách sống",
+            "tags": [
+                "tối giản",
+                "triết lý sống",
+                "hạnh phúc"
+            ],
+            "author": "Trần Thị Bình",
+            "userId": "2",
+            "date": "2026-01-15",
+            "views": 2470
+        },
+        {
+            "id": "2",
+            "title": "Thiết Kế Bền Vững: Xu Hướng Của Tương Lai",
+            "content": "Thiết kế bền vững không còn là một lựa chọn mà đã trở thành một yêu cầu bắt buộc trong ngành kiến trúc và xây dựng hiện đại. Với tình trạng biến đổi khí hậu ngày càng nghiêm trọng, việc tạo ra những công trình kiến trúc thân thiện với môi trường là trách nhiệm của mỗi kiến trúc sư.\n\nThiết kế bền vững bắt đầu từ việc lựa chọn vật liệu. Thay vì sử dụng bê tông và thép truyền thống, các kiến trúc sư hiện đại đang chuyển sang sử dụng tre, gỗ tái chế, và các vật liệu thân thiện với môi trường khác. Những vật liệu này không chỉ giảm lượng carbon footprint mà còn tạo ra không gian sống ấm áp và gần gũi với thiên nhiên.\n\nHệ thống năng lượng cũng là một yếu tố quan trọng. Tấm pin mặt trời, hệ thống thu gom nước mưa, và các giải pháp cách nhiệt thông minh giúp giảm đáng kể chi phí vận hành và tác động đến môi trường. Một ngôi nhà được thiết kế tốt có thể tự cung cấp đến 70% năng lượng sử dụng.\n\nYếu tố thông gió tự nhiên cũng đóng vai trò then chốt. Bằng cách tính toán hướng gió, vị trí cửa sổ, và độ cao trần nhà, kiến trúc sư có thể tạo ra luồng không khí tuần hoàn tự nhiên, giảm thiểu việc sử dụng điều hòa không khí.\n\nTương lai của kiến trúc không chỉ nằm ở việc xây dựng những tòa nhà đẹp mắt, mà còn ở việc tạo ra những không gian sống hài hòa với thiên nhiên, giảm thiểu tác động đến môi trường, và mang lại chất lượng cuộc sống tốt hơn cho con người.",
+            "image": "/assets/images/thiet-ke-ben-vung.jpg",
+            "category": "Kiến trúc",
+            "tags": [
+                "bền vững",
+                "kiến trúc xanh",
+                "môi trường"
+            ],
+            "author": "Nguyễn Mạnh Hùng",
+            "userId": "1",
+            "date": "2026-01-20",
+            "views": 1899
+        },
+        {
+            "id": "3",
+            "title": "Không Gian Làm Việc Sáng Tạo: Tối Ưu Hóa Năng Suất",
+            "content": "Môi trường làm việc có ảnh hưởng rất lớn đến năng suất và sự sáng tạo của chúng ta. Một không gian được thiết kế tốt không chỉ giúp chúng ta làm việc hiệu quả hơn mà còn mang lại cảm giác hứng khởi và động lực mỗi ngày.\n\nÁnh sáng là yếu tố quan trọng nhất. Ánh sáng tự nhiên không chỉ tốt cho sức khỏe mắt mà còn giúp điều chỉnh nhịp sinh học, cải thiện tâm trạng và tăng cường sự tỉnh táo. Nếu không gian làm việc của bạn thiếu ánh sáng tự nhiên, hãy đầu tư vào đèn LED chất lượng cao có khả năng điều chỉnh độ sáng và màu nhiệt độ.\n\nMàu sắc cũng có tác động tâm lý mạnh mẽ. Màu xanh lam và xanh lá cây mang lại cảm giác bình yên, giúp tập trung tốt hơn. Màu vàng và cam kích thích sự sáng tạo và năng lượng. Trong khi đó, màu trắng và xám tạo cảm giác chuyên nghiệp và hiện đại.\n\nCây xanh trong văn phòng không chỉ làm đẹp không gian mà còn cải thiện chất lượng không khí. Nghiên cứu cho thấy cây xanh có thể giảm stress, tăng năng suất lên đến 15%, và giúp lọc không khí, loại bỏ các chất độc hại.\n\nSự ngăn nắp và tổ chức cũng rất quan trọng. Một bàn làm việc lộn xộn tạo ra cảm giác căng thẳng và mất tập trung. Hãy đầu tư vào các giải pháp lưu trữ thông minh, giữ bàn làm việc sạch sẽ với chỉ những đồ vật cần thiết.\n\nCuối cùng, đừng quên yếu tố công thái học. Ghế ngồi tốt, bàn có độ cao phù hợp, màn hình đặt đúng tầm mắt - tất cả đều góp phần bảo vệ sức khỏe cơ xương khớp và giúp bạn làm việc thoải mái suốt cả ngày.",
+            "image": "/assets/images/post-card1.jpg",
+            "category": "Thiết kế",
+            "tags": [
+                "văn phòng",
+                "năng suất",
+                "workspace"
+            ],
+            "author": "Lê Hoàng Minh",
+            "userId": "3",
+            "date": "2026-01-25",
+            "views": 1564
+        },
+        {
+            "id": "4",
+            "title": "Sức Khỏe Tinh Thần Trong Thời Đại Số",
+            "content": "Trong kỷ nguyên công nghệ số, chúng ta kết nối với cả thế giới chỉ qua một chiếc điện thoại, nhưng đồng thời cũng đang đối mặt với một cuộc khủng hoảng sức khỏe tâm thần chưa từng có. Mạng xã hội, công việc không ngừng nghỉ, và áp lực thành công đang dần ăn mòn sức khỏe tinh thần của chúng ta.\n\nTheo nghiên cứu gần đây, việc sử dụng mạng xã hội quá 3 giờ mỗi ngày có thể tăng nguy cơ trầm cảm và lo âu lên đến 60%. Sự so sánh không ngừng với cuộc sống 'hoàn hảo' của người khác trên mạng tạo ra cảm giác tự ti và không đủ tốt.\n\nVậy làm thế nào để bảo vệ sức khỏe tinh thần trong thời đại này? Đầu tiên, hãy thiết lập ranh giới rõ ràng với công nghệ. Digital detox - tạm thời ngắt kết nối với thiết bị điện tử - là cách hiệu quả để tâm trí được nghỉ ngơi và phục hồi.\n\nThiền định và mindfulness đã được chứng minh có tác dụng rất tốt trong việc giảm stress và cải thiện sức khỏe tâm thần. Chỉ cần 10-15 phút thiền mỗi ngày có thể mang lại sự khác biệt đáng kể. Có nhiều ứng dụng hướng dẫn thiền miễn phí mà bạn có thể tham khảo.\n\nKết nối với thiên nhiên cũng là một liều thuốc tuyệt vời. Đi bộ trong công viên, chăm sóc cây cối, hay đơn giản là ngồi ngoài trời và cảm nhận ánh nắng mặt trời đều giúp giảm cortisol - hormone gây stress.\n\nQuan trọng nhất, đừng ngần ngại tìm kiếm sự giúp đỡ chuyên nghiệp khi cần thiết. Nói chuyện với bác sĩ tâm lý hay tham gia các nhóm hỗ trợ không phải là dấu hiệu yếu đuối mà là bước đi dũng cảm để chăm sóc bản thân.\n\nHãy nhớ rằng, sức khỏe tinh thần cũng quan trọng như sức khỏe thể chất. Trong thế giới đầy ắp thông tin và áp lực, việc chăm sóc tâm trí là ưu tiên hàng đầu để có một cuộc sống cân bằng và hạnh phúc.",
+            "image": "/assets/images/img1.webp",
+            "category": "Sức khỏe",
+            "tags": [
+                "sức khỏe tinh thần",
+                "mindfulness",
+                "digital detox"
+            ],
+            "author": "Elena Trần",
+            "userId": "4",
+            "date": "2026-01-28",
+            "views": 3143
+        },
+        {
+            "id": "5",
+            "title": "Vật Liệu Thân Thiện Môi Trường Trong Xây Dựng",
+            "content": "Ngành xây dựng là một trong những ngành gây ô nhiễm môi trường nhiều nhất trên thế giới, chiếm khoảng 40% lượng carbon dioxide toàn cầu. Tuy nhiên, với sự phát triển của công nghệ và nhận thức về môi trường, ngày càng có nhiều vật liệu xây dựng thân thiện với môi trường ra đời.\n\nTre là một trong những vật liệu bền vững tuyệt vời nhất. Với tốc độ tăng trưởng nhanh (có thể đạt chiều cao trưởng thành chỉ trong 3-5 năm), độ bền cao tương đương gỗ cứng, và khả năng hấp thụ carbon dioxide gấp 4 lần so với cây gỗ thông thường, tre đang trở thành lựa chọn hàng đầu trong xây dựng sinh thái.\n\nGạch bùn adobe - được làm từ đất sét, cát, nước và rơm - là vật liệu xây dựng có từ hàng nghìn năm. Chúng hoàn toàn tự nhiên, có khả năng cách nhiệt tuyệt vời, điều hòa độ ẩm tự nhiên, và có thể tái chế 100%. Nhiều công trình hiện đại đang sử dụng gạch adobe kết hợp với kỹ thuật hiện đại để tạo ra những ngôi nhà vừa đẹp vừa bền vững.\n\nBê tông tái chế là giải pháp cho vấn đề chất thải xây dựng. Thay vì vứt bỏ bê tông cũ, chúng ta có thể nghiền nó thành cốt liệu để tạo bê tông mới. Điều này không chỉ giảm chất thải mà còn tiết kiệm tài nguyên thiên nhiên.\n\nPanel gỗ tái chế và ván MDF từ sợi gỗ tái chế đang ngày càng phổ biến. Chúng không chỉ giảm nạn phá rừng mà còn có chất lượng tương đương hoặc thậm chí tốt hơn gỗ tự nhiên trong một số ứng dụng.\n\nSơn thân thiện môi trường với thành phần VOC thấp (chất hữu cơ dễ bay hơi) không chỉ an toàn cho sức khỏe con người mà còn giảm ô nhiễm không khí trong nhà. Nhiều loại sơn sinh học từ sữa, đất sét, hay chiết xuất thực vật đang được phát triển.\n\nViệc lựa chọn vật liệu xây dựng thân thiện môi trường không chỉ là trách nhiệm với hành tinh mà còn là đầu tư thông minh cho tương lai. Những ngôi nhà được xây dựng bằng vật liệu bền vững thường có chi phí vận hành thấp hơn, môi trường sống lành mạnh hơn, và giá trị bền vững theo thời gian.",
+            "image": "/assets/images/vat-lieu-than-thien.webp",
+            "category": "Kiến trúc",
+            "tags": [
+                "vật liệu xanh",
+                "xây dựng bền vững",
+                "thân thiện môi trường"
+            ],
+            "author": "Nguyễn Mạnh Hùng",
+            "userId": "1",
+            "date": "2026-02-01",
+            "views": 984
+        },
+        {
+            "id": "6",
+            "title": "Yoga và Thiền: Hành Trình Kết Nối Cơ Thể - Tâm Hồn",
+            "content": "Trong nhịp sống hối hả của xã hội hiện đại, Yoga và Thiền không chỉ là những bài tập thể chất hay tâm linh đơn thuần, mà là cầu nối giúp chúng ta kết nối lại với chính mình, tìm thấy sự cân bằng giữa cơ thể và tâm hồn.\n\nYoga, với lịch sử hàng nghìn năm từ Ấn Độ, là sự kết hợp hoàn hảo giữa động tác thể chất (asana), hơi thở (pranayama), và thiền định. Không giống như các bài tập thể dục thông thường chỉ tập trung vào cơ bắp, Yoga làm việc với toàn bộ hệ thống cơ thể - từ xương khớp, cơ bắp, đến các cơ quan nội tạng và hệ thần kinh.\n\nNghiên cứu khoa học đã chứng minh Yoga có nhiều lợi ích sức khỏe đáng kinh ngạc. Nó giúp tăng cường sự linh hoạt, cải thiện tư thế, giảm đau lưng mãn tính, và tăng cường sức mạnh cơ bắp. Hơn thế, Yoga còn có tác động sâu sắc đến sức khỏe tâm thần - giảm stress, lo âu, cải thiện chất lượng giấc ngủ, và tăng cường cảm giác hạnh phúc.\n\nThiền định, thành phần không thể thiếu của Yoga, là nghệ thuật quan sát và chấp nhận. Khi thiền, chúng ta học cách quan sát những suy nghĩ, cảm xúc mà không phán xét hay phản ứng. Điều này giúp chúng ta phát triển khả năng kiểm soát cảm xúc và đối phó tốt hơn với căng thẳng trong cuộc sống.\n\nĐối với người mới bắt đầu, việc bắt đầu tập Yoga có thể có vẻ đáng sợ với những tư thế phức tạp và triết lý sâu sắc. Nhưng hãy nhớ rằng, Yoga không phải là cuộc thi. Mỗi người có cơ thể và khả năng khác nhau. Điều quan trọng là lắng nghe cơ thể mình và tiến bộ theo tốc độ riêng.\n\nBạn có thể bắt đầu với chỉ 10-15 phút mỗi ngày. Các tư thế đơn giản như Con Mèo-Con Bò (Cat-Cow), Tư thế Trẻ em (Child's Pose), hay Tư thế Xác chết (Savasana) đã đủ để mang lại những lợi ích tuyệt vời. Có nhiều video hướng dẫn miễn phí trên YouTube hay các ứng dụng Yoga dành cho người mới.\n\nQuan trọng nhất, Yoga và Thiền là hành trình cả đời, không phải đích đến. Mỗi ngày trên thảm tập là một cơ hội để khám phá bản thân, chữa lành những vết thương trong tâm hồn, và tìm lại sự bình yên trong tâm.",
+            "image": "/assets/images/yoga-thien.jpg",
+            "category": "Sức khỏe",
+            "tags": [
+                "yoga",
+                "thiền",
+                "sức khỏe tinh thần"
+            ],
+            "author": "Elena Trần",
+            "userId": "4",
+            "date": "2026-02-03",
+            "views": 2257
+        }
+    ],
+    "comments": [
+        {
+            "id": "1",
+            "postId": "1",
+            "userId": "3",
+            "userName": "Lê Hoàng Minh",
+            "content": "Bài viết rất hay! Tôi đã bắt đầu hành trình tối giản của mình 6 tháng trước và cảm thấy cuộc sống nhẹ nhàng hơn rất nhiều.",
+            "date": "2026-01-16"
+        },
+        {
+            "id": "2",
+            "postId": "1",
+            "userId": "4",
+            "userName": "Elena Trần",
+            "content": "Cảm ơn tác giả đã chia sẻ. Mình đang cố gắng giảm bớt đồ đạc trong nhà và bài viết này rất hữu ích.",
+            "date": "2026-01-17"
+        },
+        {
+            "id": "3",
+            "postId": "2",
+            "userId": "2",
+            "userName": "Trần Thị Bình",
+            "content": "Thiết kế bền vững thực sự là tương lai. Rất mong nhiều kiến trúc sư áp dụng những ý tưởng này.",
+            "date": "2026-01-21"
+        },
+        {
+            "id": "4",
+            "postId": "4",
+            "userId": "1",
+            "userName": "Nguyễn Mạnh Hùng",
+            "content": "Bài viết chạm đến trái tim mình. Sức khỏe tâm thần thực sự quá quan trọng trong thời đại này.",
+            "date": "2026-01-29"
+        },
+        {
+            "id": "5",
+            "postId": "4",
+            "userId": "3",
+            "userName": "Lê Hoàng Minh",
+            "content": "Cảm ơn bạn đã viết về chủ đề này. Digital detox thật sự cần thiết!",
+            "date": "2026-01-30"
+        }
+    ]
+}
